@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retour bêta test - Follow Tracker</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(168, 85, 247, 0.10), transparent 25%),
+        radial-gradient(circle at bottom center, rgba(14, 165, 233, 0.08), transparent 30%),
+        linear-gradient(145deg, #020617 0%, #0f172a 45%, #111827 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: fadeUp 0.8s ease;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 42px;
+      line-height: 1.1;
+      text-shadow: 0 0 18px rgba(56, 189, 248, 0.12);
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 700px;
+      color: #cbd5e1;
+      line-height: 1.45;
+      font-size: 17px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow:
+        0 10px 35px rgba(0,0,0,0.35),
+        0 0 24px rgba(56,189,248,0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      animation: fadeUp 0.9s ease;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin: 0 0 18px;
+    }
+
+    .intro-box {
+      margin-bottom: 22px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      color: #dbeafe;
+      line-height: 1.4;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #f8fafc;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.06);
+      color: white;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.08);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .radio-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #e2e8f0;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #e2e8f0;
+    }
+
+    .actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #02111b;
+      box-shadow: 0 8px 22px rgba(56,189,248,0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .note {
+      margin-top: 18px;
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 22px 14px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Retour bêta test<br>Follow Tracker</h1>
+      <p>
+        Merci de prendre quelques minutes pour partager ton retour.
+        Ton avis m’aide à améliorer le logiciel avant les prochaines versions.
+      </p>
+    </section>
+
+    <div class="card">
+      <div class="intro-box">
+        Merci de remplir ce formulaire le plus précisément possible. Les retours concrets,
+        bugs rencontrés et idées d’amélioration sont particulièrement utiles.
+      </div>
+
+      <form>
+        <h2 class="section-title">Informations générales</h2>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="nom">Nom ou pseudo</label>
+            <input type="text" id="nom" name="nom" placeholder="Ex : PAPeenTest">
+          </div>
+
+          <div class="form-group">
+            <label for="github">Profil GitHub</label>
+            <input type="text" id="github" name="github" placeholder="Ex : github.com/tonprofil">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="email">Adresse mail</label>
+            <input type="email" id="email" name="email" placeholder="Ex : email@exemple.com">
+          </div>
+
+          <div class="form-group">
+            <label for="version">Version testée</label>
+            <input type="text" id="version" name="version" placeholder="Ex : v1.0 bêta">
+          </div>
+        </div>
+
+        <h2 class="section-title">Ton expérience</h2>
+
+        <div class="form-group">
+          <label>Le logiciel était-il facile à comprendre ?</label>
+          <div class="radio-group">
+            <label class="radio-card"><input type="radio" name="facile" value="oui"> Oui</label>
+            <label class="radio-card"><input type="radio" name="facile" value="moyen"> Moyen</label>
+            <label class="radio-card"><input type="radio" name="facile" value="non"> Non</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Comment juges-tu la stabilité du logiciel ?</label>
+          <div class="radio-group">
+            <label class="radio-card"><input type="radio" name="stabilite" value="bonne"> Bonne</label>
+            <label class="radio-card"><input type="radio" name="stabilite" value="moyenne"> Moyenne</label>
+            <label class="radio-card"><input type="radio" name="stabilite" value="faible"> Faible</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Quelles fonctions as-tu utilisées ?</label>
+          <div class="checklist">
+            <label class="check-item"><input type="checkbox" name="fonctions" value="suivi_followers"> Suivi des followers</label>
+            <label class="check-item"><input type="checkbox" name="fonctions" value="follow_back"> Détection des follow back</label>
+            <label class="check-item"><input type="checkbox" name="fonctions" value="interface"> Navigation dans l’interface</label>
+            <label class="check-item"><input type="checkbox" name="fonctions" value="autre"> Autre</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="note">Note globale sur 10</label>
+          <select id="note" name="note">
+            <option value="">Choisir une note</option>
+            <option>10</option>
+            <option>9</option>
+            <option>8</option>
+            <option>7</option>
+            <option>6</option>
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="points-forts">Points forts du logiciel</label>
+          <textarea id="points-forts" name="points-forts" placeholder="Qu’as-tu aimé dans le logiciel ?"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="bugs">Bugs ou problèmes rencontrés</label>
+          <textarea id="bugs" name="bugs" placeholder="Décris les bugs ou les comportements étranges observés"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="ameliorations">Améliorations souhaitées</label>
+          <textarea id="ameliorations" name="ameliorations" placeholder="Qu’aimerais-tu voir dans une prochaine version ?"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="retour-libre">Retour libre</label>
+          <textarea id="retour-libre" name="retour-libre" placeholder="Tu peux écrire ici tout autre commentaire utile"></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Envoyer le retour</button>
+          <button type="reset" class="btn btn-secondary">Réinitialiser</button>
+        </div>
+
+        <p class="note">
+          Ce formulaire est prêt visuellement. Pour un envoi réel, il faudra le connecter
+          à un service de réception de formulaire.
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
