@@ -24,7 +24,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 950px;
       margin: 0 auto;
     }
 
@@ -64,7 +64,11 @@
 
     .section-title {
       font-size: 22px;
-      margin: 0 0 18px;
+      margin: 28px 0 18px;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
     }
 
     .intro-box {
@@ -103,6 +107,12 @@
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    textarea::placeholder {
+      color: #94a3b8;
+    }
+
     input[type="text"]:focus,
     input[type="email"]:focus,
     select:focus,
@@ -114,6 +124,17 @@
     textarea {
       min-height: 120px;
       resize: vertical;
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    select option {
+      background: #0f172a;
+      color: white;
     }
 
     .grid-2 {
@@ -251,34 +272,64 @@
 
     <div class="card">
       <div class="intro-box">
-        Merci de remplir ce formulaire le plus précisément possible. Les retours concrets,
-        bugs rencontrés et idées d’amélioration sont particulièrement utiles.
+        Merci de remplir ce formulaire le plus précisément possible.
+        Les bugs, idées d’amélioration et informations matérielles sont particulièrement utiles.
       </div>
 
-      <form>
+      <form action="mailto:papeentwitch@gmail.com?subject=Retour%20b%C3%AAta%20test%20-%20Follow%20Tracker" method="post" enctype="text/plain">
         <h2 class="section-title">Informations générales</h2>
 
         <div class="grid-2">
           <div class="form-group">
             <label for="nom">Nom ou pseudo</label>
-            <input type="text" id="nom" name="nom" placeholder="Ex : PAPeenTest">
+            <input type="text" id="nom" name="Nom ou pseudo" placeholder="Ex : PAPeenTest" required>
           </div>
 
           <div class="form-group">
             <label for="github">Profil GitHub</label>
-            <input type="text" id="github" name="github" placeholder="Ex : github.com/tonprofil">
+            <input type="text" id="github" name="Profil GitHub" placeholder="Ex : github.com/tonprofil" required>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="form-group">
             <label for="email">Adresse mail</label>
-            <input type="email" id="email" name="email" placeholder="Ex : email@exemple.com">
+            <input type="email" id="email" name="Adresse mail" placeholder="Ex : email@exemple.com" required>
           </div>
 
           <div class="form-group">
             <label for="version">Version testée</label>
-            <input type="text" id="version" name="version" placeholder="Ex : v1.0 bêta">
+            <input type="text" id="version" name="Version testée" placeholder="Ex : v1.0 bêta">
+          </div>
+        </div>
+
+        <h2 class="section-title">Configuration matérielle</h2>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="type-pc">Type d’ordinateur</label>
+            <select id="type-pc" name="Type d’ordinateur" required>
+              <option value="">Choisir</option>
+              <option value="PC fixe">PC fixe</option>
+              <option value="PC portable">PC portable</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ram">Mémoire RAM</label>
+            <input type="text" id="ram" name="RAM" placeholder="Ex : 16 Go" required>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="cpu">Processeur</label>
+            <input type="text" id="cpu" name="Processeur" placeholder="Ex : Ryzen 5 5600X / Intel i7-12700">
+          </div>
+
+          <div class="form-group">
+            <label for="gpu">Carte graphique</label>
+            <input type="text" id="gpu" name="Carte graphique" placeholder="Ex : RTX 3060 / Radeon RX 6700 XT / Intel Iris Xe">
           </div>
         </div>
 
@@ -287,66 +338,66 @@
         <div class="form-group">
           <label>Le logiciel était-il facile à comprendre ?</label>
           <div class="radio-group">
-            <label class="radio-card"><input type="radio" name="facile" value="oui"> Oui</label>
-            <label class="radio-card"><input type="radio" name="facile" value="moyen"> Moyen</label>
-            <label class="radio-card"><input type="radio" name="facile" value="non"> Non</label>
+            <label class="radio-card"><input type="radio" name="Facilité de compréhension" value="Oui" required> Oui</label>
+            <label class="radio-card"><input type="radio" name="Facilité de compréhension" value="Moyen"> Moyen</label>
+            <label class="radio-card"><input type="radio" name="Facilité de compréhension" value="Non"> Non</label>
           </div>
         </div>
 
         <div class="form-group">
           <label>Comment juges-tu la stabilité du logiciel ?</label>
           <div class="radio-group">
-            <label class="radio-card"><input type="radio" name="stabilite" value="bonne"> Bonne</label>
-            <label class="radio-card"><input type="radio" name="stabilite" value="moyenne"> Moyenne</label>
-            <label class="radio-card"><input type="radio" name="stabilite" value="faible"> Faible</label>
+            <label class="radio-card"><input type="radio" name="Stabilité" value="Bonne" required> Bonne</label>
+            <label class="radio-card"><input type="radio" name="Stabilité" value="Moyenne"> Moyenne</label>
+            <label class="radio-card"><input type="radio" name="Stabilité" value="Faible"> Faible</label>
           </div>
         </div>
 
         <div class="form-group">
           <label>Quelles fonctions as-tu utilisées ?</label>
           <div class="checklist">
-            <label class="check-item"><input type="checkbox" name="fonctions" value="suivi_followers"> Suivi des followers</label>
-            <label class="check-item"><input type="checkbox" name="fonctions" value="follow_back"> Détection des follow back</label>
-            <label class="check-item"><input type="checkbox" name="fonctions" value="interface"> Navigation dans l’interface</label>
-            <label class="check-item"><input type="checkbox" name="fonctions" value="autre"> Autre</label>
+            <label class="check-item"><input type="checkbox" name="Fonctions testées" value="Suivi des followers"> Suivi des followers</label>
+            <label class="check-item"><input type="checkbox" name="Fonctions testées" value="Détection des follow back"> Détection des follow back</label>
+            <label class="check-item"><input type="checkbox" name="Fonctions testées" value="Navigation dans l’interface"> Navigation dans l’interface</label>
+            <label class="check-item"><input type="checkbox" name="Fonctions testées" value="Autre"> Autre</label>
           </div>
         </div>
 
         <div class="form-group">
           <label for="note">Note globale sur 10</label>
-          <select id="note" name="note">
+          <select id="note" name="Note globale sur 10" required>
             <option value="">Choisir une note</option>
-            <option>10</option>
-            <option>9</option>
-            <option>8</option>
-            <option>7</option>
-            <option>6</option>
-            <option>5</option>
-            <option>4</option>
-            <option>3</option>
-            <option>2</option>
-            <option>1</option>
+            <option value="10">10</option>
+            <option value="9">9</option>
+            <option value="8">8</option>
+            <option value="7">7</option>
+            <option value="6">6</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="points-forts">Points forts du logiciel</label>
-          <textarea id="points-forts" name="points-forts" placeholder="Qu’as-tu aimé dans le logiciel ?"></textarea>
+          <textarea id="points-forts" name="Points forts" placeholder="Qu’as-tu aimé dans le logiciel ?"></textarea>
         </div>
 
         <div class="form-group">
           <label for="bugs">Bugs ou problèmes rencontrés</label>
-          <textarea id="bugs" name="bugs" placeholder="Décris les bugs ou les comportements étranges observés"></textarea>
+          <textarea id="bugs" name="Bugs ou problèmes rencontrés" placeholder="Décris les bugs ou comportements étranges observés"></textarea>
         </div>
 
         <div class="form-group">
           <label for="ameliorations">Améliorations souhaitées</label>
-          <textarea id="ameliorations" name="ameliorations" placeholder="Qu’aimerais-tu voir dans une prochaine version ?"></textarea>
+          <textarea id="ameliorations" name="Améliorations souhaitées" placeholder="Qu’aimerais-tu voir dans une prochaine version ?"></textarea>
         </div>
 
         <div class="form-group">
           <label for="retour-libre">Retour libre</label>
-          <textarea id="retour-libre" name="retour-libre" placeholder="Tu peux écrire ici tout autre commentaire utile"></textarea>
+          <textarea id="retour-libre" name="Retour libre" placeholder="Tu peux écrire ici tout autre commentaire utile"></textarea>
         </div>
 
         <div class="actions">
@@ -355,8 +406,7 @@
         </div>
 
         <p class="note">
-          Ce formulaire est prêt visuellement. Pour un envoi réel, il faudra le connecter
-          à un service de réception de formulaire.
+          En cliquant sur “Envoyer le retour”, ton logiciel mail s’ouvrira avec les réponses du formulaire.
         </p>
       </form>
     </div>
