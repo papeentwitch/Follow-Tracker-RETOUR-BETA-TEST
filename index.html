@@ -281,25 +281,25 @@
 
         <div class="grid-2">
           <div class="form-group">
-            <label for="nom">Nom ou pseudo</label>
-            <input type="text" id="nom" name="Nom ou pseudo" placeholder="Ex : PAPeenTest" required>
+            <label for="ft-nom">Nom ou pseudo</label>
+            <input type="text" id="ft-nom" name="Nom ou pseudo" placeholder="Ex : PAPeenTest" required>
           </div>
 
           <div class="form-group">
-            <label for="github">Profil GitHub</label>
-            <input type="text" id="github" name="Profil GitHub" placeholder="Ex : github.com/tonprofil" required>
+            <label for="ft-github">Profil GitHub</label>
+            <input type="text" id="ft-github" name="Profil GitHub" placeholder="Ex : github.com/tonprofil" required>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="form-group">
-            <label for="email">Adresse mail</label>
-            <input type="email" id="email" name="Adresse mail" placeholder="Ex : email@exemple.com" required>
+            <label for="ft-email">Adresse mail</label>
+            <input type="email" id="ft-email" name="Adresse mail" placeholder="Ex : email@exemple.com" required>
           </div>
 
           <div class="form-group">
-            <label for="version">Version testée</label>
-            <input type="text" id="version" name="Version testée" placeholder="Ex : v1.0 bêta">
+            <label for="ft-version">Version testée</label>
+            <input type="text" id="ft-version" name="Version testée" placeholder="Ex : v1.0 bêta">
           </div>
         </div>
 
@@ -307,8 +307,8 @@
 
         <div class="grid-2">
           <div class="form-group">
-            <label for="type-pc">Type d’ordinateur</label>
-            <select id="type-pc" name="Type d’ordinateur" required>
+            <label for="ft-type-pc">Type d’ordinateur</label>
+            <select id="ft-type-pc" name="Type d’ordinateur" required>
               <option value="">Choisir</option>
               <option value="PC fixe">PC fixe</option>
               <option value="PC portable">PC portable</option>
@@ -316,20 +316,20 @@
           </div>
 
           <div class="form-group">
-            <label for="ram">Mémoire RAM</label>
-            <input type="text" id="ram" name="RAM" placeholder="Ex : 16 Go" required>
+            <label for="ft-ram">Mémoire RAM</label>
+            <input type="text" id="ft-ram" name="RAM" placeholder="Ex : 16 Go" required>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="form-group">
-            <label for="cpu">Processeur</label>
-            <input type="text" id="cpu" name="Processeur" placeholder="Ex : Ryzen 5 5600X / Intel i7-12700">
+            <label for="ft-cpu">Processeur</label>
+            <input type="text" id="ft-cpu" name="Processeur" placeholder="Ex : Ryzen 5 5600X / Intel i7-12700">
           </div>
 
           <div class="form-group">
-            <label for="gpu">Carte graphique</label>
-            <input type="text" id="gpu" name="Carte graphique" placeholder="Ex : RTX 3060 / Radeon RX 6700 XT / Intel Iris Xe">
+            <label for="ft-gpu">Carte graphique</label>
+            <input type="text" id="ft-gpu" name="Carte graphique" placeholder="Ex : RTX 3060 / Radeon RX 6700 XT / Intel Iris Xe">
           </div>
         </div>
 
@@ -364,8 +364,8 @@
         </div>
 
         <div class="form-group">
-          <label for="note">Note globale sur 10</label>
-          <select id="note" name="Note globale sur 10" required>
+          <label for="ft-note">Note globale sur 10</label>
+          <select id="ft-note" name="Note globale sur 10" required>
             <option value="">Choisir une note</option>
             <option value="10">10</option>
             <option value="9">9</option>
@@ -381,23 +381,61 @@
         </div>
 
         <div class="form-group">
-          <label for="points-forts">Points forts du logiciel</label>
-          <textarea id="points-forts" name="Points forts" placeholder="Qu’as-tu aimé dans le logiciel ?"></textarea>
+          <label for="ft-points-forts">Points forts du logiciel</label>
+          <textarea id="ft-points-forts" name="Points forts" placeholder="Qu’as-tu aimé dans le logiciel ?"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="bugs">Bugs ou problèmes rencontrés</label>
-          <textarea id="bugs" name="Bugs ou problèmes rencontrés" placeholder="Décris les bugs ou comportements étranges observés"></textarea>
+          <label for="ft-bugs">Bugs ou problèmes rencontrés</label>
+          <textarea id="ft-bugs" name="Bugs ou problèmes rencontrés" placeholder="Décris les bugs ou comportements étranges observés"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="ameliorations">Améliorations souhaitées</label>
-          <textarea id="ameliorations" name="Améliorations souhaitées" placeholder="Qu’aimerais-tu voir dans une prochaine version ?"></textarea>
+          <label for="ft-ameliorations">Améliorations souhaitées</label>
+          <textarea id="ft-ameliorations" name="Améliorations souhaitées" placeholder="Qu’aimerais-tu voir dans une prochaine version ?"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="retour-libre">Retour libre</label>
-          <textarea id="retour-libre" name="Retour libre" placeholder="Tu peux écrire ici tout autre commentaire utile"></textarea>
+          <label for="ft-retour-libre">Retour libre</label>
+          <textarea id="ft-retour-libre" name="Retour libre" placeholder="Tu peux écrire ici tout autre commentaire utile"></textarea>
+        </div>
+
+        <h2 class="section-title">Avis commercial</h2>
+
+        <div class="form-group">
+          <label>Selon toi, ce logiciel devrait-il être payant ?</label>
+          <div class="radio-group">
+            <label class="radio-card"><input type="radio" name="Le logiciel devrait-il être payant" value="Oui"> Oui</label>
+            <label class="radio-card"><input type="radio" name="Le logiciel devrait-il être payant" value="Non"> Non</label>
+            <label class="radio-card"><input type="radio" name="Le logiciel devrait-il être payant" value="Je ne sais pas"> Je ne sais pas</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Quel modèle te semblerait le plus adapté ?</label>
+          <div class="radio-group">
+            <label class="radio-card"><input type="radio" name="Modèle économique conseillé" value="Prix fixe"> Prix fixe</label>
+            <label class="radio-card"><input type="radio" name="Modèle économique conseillé" value="Abonnement mensuel"> Abonnement mensuel</label>
+            <label class="radio-card"><input type="radio" name="Modèle économique conseillé" value="Version gratuite + version premium"> Version gratuite + version premium</label>
+            <label class="radio-card"><input type="radio" name="Modèle économique conseillé" value="Aucun"> Aucun</label>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="ft-prix-fixe">Si prix fixe, quel prix ?</label>
+            <input type="text" id="ft-prix-fixe" name="Si prix fixe, quel prix" placeholder="Ex : 9,99€ / 15€ / 20€">
+          </div>
+
+          <div class="form-group">
+            <label for="ft-prix-abonnement">Si abonnement, quel prix par mois ?</label>
+            <input type="text" id="ft-prix-abonnement" name="Si abonnement, quel prix par mois" placeholder="Ex : 2,99€ / 4,99€ / 9,99€">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ft-avis-prix">Pourquoi ce choix ?</label>
+          <textarea id="ft-avis-prix" name="Pourquoi ce choix de prix ou de modèle" placeholder="Explique ce qui te semblerait juste pour ce logiciel"></textarea>
         </div>
 
         <div class="actions">
